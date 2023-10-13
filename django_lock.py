@@ -247,7 +247,7 @@ class Lock(object):
 
 class LocMemLock(Lock):
     def __init__(self, *args, **kwargs):
-        if not settings.DEBUG:
+        if not settings.DEBUG and not settings.TESTING:
             raise RuntimeError("DO NOT use locmem cache as lock's backend in "
                                "a product environment")
 
